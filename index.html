@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#090b10">
+  <title>ARCADIA — Museum VR</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loading">
+    <div class="loader"></div>
+    <h1>ARCADIA</h1>
+    <p>Memuat ruang pamer...</p>
+    <small id="loadError"></small>
+  </div>
+
+  <div id="hud">
+    <div class="brand"><b>ARCADIA</b><span>MUSEUM OF CIVILIZATION</span></div>
+    <div class="live">● LIVE EXHIBITION</div>
+    <div class="location"><small>LOKASI</small><strong id="location">CENTRAL ROTUNDA</strong></div>
+    <div class="help"><b>W A S D / ANALOG KIRI</b> Bergerak &nbsp; <b>MOUSE / ANALOG KANAN</b> Melihat &nbsp; <b>E / ✕</b> Informasi &nbsp; <b>ESC</b> Keluar</div>
+    <div id="prompt">Klik layar untuk mulai</div>
+    <div class="crosshair"></div>
+  </div>
+  <div id="gamepadStatus" class="controller-status" role="status" aria-live="polite">Stik belum terhubung — hubungkan via Bluetooth atau USB</div>
+  <aside id="controllerHelp" class="controller-help hidden" aria-label="Panduan controller">
+    <button type="button" id="controllerHelpClose" aria-label="Tutup panduan">×</button>
+    <small>CONTROLLER GUIDE</small>
+    <h2>Kontrol Stik</h2>
+    <p><b>Analog kiri / D-pad:</b> berjalan.</p>
+    <p><b>Analog kanan:</b> melihat sekeliling. Saat gyro aktif, gyro menjadi kontrol pandangan utama.</p>
+    <p><b>✕ / Cross:</b> buka informasi objek yang dibidik.</p>
+    <p><b>○ / Circle:</b> tutup panel informasi.</p>
+    <p><b>L1:</b> pusatkan pandangan. <b>Options / Start:</b> buka/tutup panduan ini.</p>
+    <p class="controller-note">Hubungkan stik sebelum atau sesudah membuka museum. Jika belum terbaca, tekan tombol pada stik sekali.</p>
+  </aside>
+
+  <!-- Kontrol ini muncul pada layar HP/tablet; tidak mengganggu kontrol PC. -->
+  <div id="mobileControls" aria-label="Kontrol museum pada HP">
+    <div class="mobile-dpad" aria-label="Tombol bergerak">
+      <button type="button" class="move-button move-up" data-move-key="KeyW" aria-label="Maju">▲</button>
+      <button type="button" class="move-button move-left" data-move-key="KeyA" aria-label="Ke kiri">◀</button>
+      <button type="button" class="move-button move-down" data-move-key="KeyS" aria-label="Mundur">▼</button>
+      <button type="button" class="move-button move-right" data-move-key="KeyD" aria-label="Ke kanan">▶</button>
+    </div>
+    <div class="mobile-actions">
+      <button type="button" id="gyroToggle" class="mobile-action primary">Aktifkan Gyro</button>
+      <button type="button" id="gyroRecenter" class="mobile-action">Pusatkan Pandangan</button>
+      <button type="button" id="inspectMobile" class="mobile-action">Info Objek</button>
+      <small id="gyroStatus" role="status" aria-live="polite">Gyro belum aktif</small>
+    </div>
+  </div>
+
+  <aside id="info" class="hidden">
+    <button id="close" aria-label="Tutup informasi">×</button>
+    <small>COLLECTION NOTE</small>
+    <h2 id="infoTitle"></h2>
+    <p id="infoText"></p>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
